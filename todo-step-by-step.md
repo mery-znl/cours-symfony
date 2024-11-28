@@ -360,6 +360,8 @@ fetch('{{ path('api_upload') }}', {
 > Ce code permet de récupérer les fichiers uploadés dans le formulaire, de les envoyer en POST à l'API uploadApi, de recharger la page si l'upload est réussi et d'afficher une alerte si l'upload a échoué. A noté : On gère l'upload multiple de fichiers
 
 - **Testez** l'upload d'images sur la page 'upload.html.twig'. Vous devriez voir les images uploadées s'afficher sur la page.
+- Si ce n'est pas le cas, vérifiez les logs de l'application dans 'var/log/dev.log' pour voir si une erreur est survenue lors de l'upload des images. (ça peut être une dépendance composer manquante, un dossier non créé, un problème de droits sur le dossier)
+- N'oubliez pas d'afficher la page que pour les admins (avec l'attribut **#[IsGranted("ROLE_ADMIN")]**) et en affichant la page dans le menu à gauche seulement si l'utilisateur connecté est admin avec la fonction twig **is_granted('ROLE_ADMIN')**.
 
 <br><br>
 <br><br>
